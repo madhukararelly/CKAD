@@ -19,3 +19,9 @@ $kubectl run busybox --image=busybox:1.36.1 --rm -it --restart=Never -n ckad -- 
 => Delete all objects in the namespace ckad, including the namespace itself.
 
 $kubectl delete namespace ckad
+
+=> permanently swicth the name space
+
+$ kubectl config set-context --current --namespace=business
+
+$ kubectl config view --minify | grep namespace:

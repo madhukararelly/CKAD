@@ -1,0 +1,21 @@
+=> create a new namespace with the name ckad
+# 
+# kubectl create namespace ckad
+
+=> Create a new Pod named nginx running the image nginx:latest
+
+$ kubectl run nginx --image=nginx:1.17.10 --restart=Never --port=80 -n ckad
+
+$ kubectl get pod nginx -n ckad
+
+=> Get the details of the Pod, including its IP address.
+
+$ kubectl get pod nginx -n ckad -o wide
+
+=>  Create a temporary Pod and execute the wget command inside of its container using the IP address and the container port:
+
+$kubectl run busybox --image=busybox:1.36.1 --rm -it --restart=Never -n ckad -- wget 10.244.1.2:80
+
+=> Delete all objects in the namespace ckad, including the namespace itself.
+
+$kubectl delete namespace ckad
